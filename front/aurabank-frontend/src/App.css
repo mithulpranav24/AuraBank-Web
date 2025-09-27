@@ -1,0 +1,193 @@
+/* --- GLOBAL APP STYLES --- */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- ANIMATED GRADIENT BACKGROUND --- */
+.gradient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.6;
+}
+
+.blob1 {
+    width: 500px;
+    height: 500px;
+    background: #8000ff; /* Aura Purple */
+    animation: move 20s infinite alternate;
+}
+
+.blob2 {
+    width: 400px;
+    height: 400px;
+    background: #00ffff; /* Aura Cyan */
+    animation: move 25s infinite alternate -5s;
+}
+
+.blob3 {
+    width: 300px;
+    height: 300px;
+    background: #0000ff; /* Aura Blue */
+    animation: move 15s infinite alternate -10s;
+}
+
+@keyframes move {
+    from {
+        transform: translate(10vw, -20vh) rotate(0deg);
+    }
+    to {
+        transform: translate(60vw, 50vh) rotate(360deg);
+    }
+}
+
+
+/* --- POLISHED FORM CONTAINER --- */
+.form-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 2.5rem;
+  background-color: rgba(20, 20, 20, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #8000ff;
+  box-shadow: 0 0 0 3px rgba(128, 0, 255, 0.4);
+}
+
+/* MODIFIED: This rule now targets ALL buttons inside the container */
+.form-container button {
+  width: 100%; /* This makes both buttons full-width */
+  box-sizing: border-box; /* Ensures padding doesn't break the width */
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.form-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+}
+
+.form-container button:disabled {
+  background: #333;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.message {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  min-height: 24px;
+}
+
+a {
+    transition: color 0.2s;
+}
+a:hover {
+    color: #00ffff !important;
+}
+
+/* --- TRANSACTION HISTORY STYLES --- */
+.history-container h3 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.transaction-list {
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.tx-name {
+  font-weight: bold;
+}
+
+.tx-time {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.tx-amount-sent {
+  font-weight: bold;
+  color: #ff6b6b; /* Red for sent */
+}
+
+.tx-amount-received {
+  font-weight: bold;
+  color: #43e97b; /* Green for received */
+}
